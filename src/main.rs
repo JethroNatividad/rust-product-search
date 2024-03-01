@@ -29,6 +29,15 @@ fn main() {
 
     // get input
     // search in products
+    let result: Option<&Product> = products
+        .products
+        .iter()
+        .find(|product| product.name == "Widget");
+
+    match result {
+        Some(product) => println!("{:?}", product),
+        None => println!("Sorry, that product was not found in our inventory."),
+    }
     // if not found, Output "Sorry, that product was not found in our inventory."
     // if found, show price, and quantity on hand.
 }
