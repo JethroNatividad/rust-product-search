@@ -47,11 +47,12 @@ fn main() {
     println!("{:?}", products);
 
     // get input
+    let search_query: String = get_input("What is the product name? ");
     // search in products
     let result: Option<&Product> = products
         .products
         .iter()
-        .find(|product| product.name == "Widget");
+        .find(|product| product.name == search_query);
 
     match result {
         Some(product) => println!("{:?}", product),
