@@ -44,7 +44,6 @@ fn main() {
     // parse the JSON file
     let products: Products =
         serde_json::from_str(file_contents.as_str()).expect("Failed parsing JSON");
-    println!("{:?}", products);
 
     // get input
     let search_query: String = get_input("What is the product name? ");
