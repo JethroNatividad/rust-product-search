@@ -22,8 +22,11 @@ fn main() {
     // Read the file "source/products.json"
     let file_contents: String =
         fs::read_to_string("src/products.json").expect("Error reading file");
-    println!("File contents:\n{}", file_contents);
     // parse the JSON file
+    let products: Products =
+        serde_json::from_str(file_contents.as_str()).expect("Failed parsing JSON");
+    println!("{:?}", products);
+
     // get input
     // search in products
     // if not found, Output "Sorry, that product was not found in our inventory."
