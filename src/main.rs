@@ -1,3 +1,4 @@
+use std::fs;
 // A program that takes a product name, searches it in a json file, outputs the price and quantity.
 // Inputs: product name
 // Process: parse json file, search for str
@@ -6,6 +7,9 @@
 // Create struct for json
 fn main() {
     // Read the file "source/products.json"
+    let file_contents: String =
+        fs::read_to_string("src/products.json").expect("Error reading file");
+    println!("File contents:\n{}", file_contents);
     // parse the JSON file
     // get input
     // search in products
