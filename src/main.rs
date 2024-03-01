@@ -45,21 +45,25 @@ fn main() {
     let products: Products =
         serde_json::from_str(file_contents.as_str()).expect("Failed parsing JSON");
 
-    // get input
-    let search_query: String = get_input("What is the product name? ");
-    // search in products
-    let result: Option<&Product> = products
-        .products
-        .iter()
-        .find(|product| product.name.to_lowercase() == search_query.to_lowercase());
+    loop {
+        // get input
+        let search_query: String = get_input("What is the product name? ");
+        // search in products
+        let result: Option<&Product> = products
+            .products
+            .iter()
+            .find(|product| product.name.to_lowercase() == search_query.to_lowercase());
 
-    match result {
-        // if found, show price, and quantity on hand.
-        Some(product) => println!(
-            "Name: {}\nPrice: ${}\nQuantity on hand: {}",
-            product.name, product.price, product.quantity
-        ),
-        // if not found, Output "Sorry, that product was not found in our inventory."
-        None => println!("Sorry, that product was not found in our inventory."),
+        match result {
+            // if found, show price, and quantity on hand.
+            Some(product) => {
+                break println!(
+                    "Name: {}\nPrice: ${}\nQuantity on hand: {}",
+                    product.name, product.price, product.quantity
+                )
+            }
+            // if not found, Output "Sorry, that product was not found in our inventory."
+            None => println!("Sorry, that product was not found in our inventory."),
+        }
     }
 }
