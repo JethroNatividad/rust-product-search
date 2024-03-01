@@ -52,7 +52,7 @@ fn main() {
     let result: Option<&Product> = products
         .products
         .iter()
-        .find(|product| product.name == search_query);
+        .find(|product| product.name.to_lowercase() == search_query.to_lowercase());
 
     match result {
         Some(product) => println!("{:?}", product),
