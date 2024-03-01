@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::fs;
 // A program that takes a product name, searches it in a json file, outputs the price and quantity.
 // Inputs: product name
