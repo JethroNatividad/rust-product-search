@@ -55,9 +55,12 @@ fn main() {
         .find(|product| product.name.to_lowercase() == search_query.to_lowercase());
 
     match result {
-        Some(product) => println!("{:?}", product),
+        // if found, show price, and quantity on hand.
+        Some(product) => println!(
+            "Name: {}\nPrice: ${}\nQuantity on hand: {}",
+            product.name, product.price, product.quantity
+        ),
+        // if not found, Output "Sorry, that product was not found in our inventory."
         None => println!("Sorry, that product was not found in our inventory."),
     }
-    // if not found, Output "Sorry, that product was not found in our inventory."
-    // if found, show price, and quantity on hand.
 }
